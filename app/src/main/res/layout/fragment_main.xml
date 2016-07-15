@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="io.maciek.todo.viewmodels.MainFragmentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/main_fragment_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@{viewModel.hello.text}" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/notes_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_above="@+id/main_fragment_footer"
+            android:layout_below="@+id/main_fragment_header"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            bind:adapter="@{viewModel.list.adapter}"
+            bind:hasFixedSize="@{viewModel.list.fixedSize}"
+            bind:layoutManager="@{viewModel.list.layoutManager}"
+            bind:onScrollListener="@{viewModel.list.scrollListener}"
+            bind:scrollToPosition="@{viewModel.list.scrollPosition}" />
+
+
+        <RelativeLayout
+            android:id="@+id/main_fragment_footer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/footer_height"
+            android:layout_alignParentBottom="true">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:alpha="0.32"
+                android:background="#000000" />
+
+            <TextView
+                android:id="@+id/sync_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/footer_button_margin"
+                android:layout_marginStart="@dimen/footer_button_margin"
+                android:gravity="center_vertical"
+                android:onClick="@{viewModel.sync}"
+                android:text="@string/sync"
+                android:textSize="@dimen/text_view_as_button_text_size" />
+
+            <ProgressBar
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_view_icon_margin"
+                android:layout_marginStart="@dimen/text_view_icon_margin"
+                android:layout_toEndOf="@+id/sync_button"
+                android:layout_toRightOf="@+id/sync_button"
+                android:visibility="@{viewModel.syncingIcon.visibility}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="@dimen/footer_button_margin"
+                android:layout_marginRight="@dimen/footer_button_margin"
+                android:gravity="center_vertical"
+                android:onClick="@{viewModel.filterClickListener}"
+                android:text="@{viewModel.filterButton.text}"
+                android:textSize="@dimen/text_view_as_button_text_size" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="io.maciek.todo.viewmodels.EditNoteFragmentViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dialog_top_margin"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="12dp"
+                android:alpha="0.54"
+                android:src="@drawable/ic_mode_edit_black_24dp" />
+
+            <EditText
+                android:id="@+id/title_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:text="@={viewModel.titleEditText.text}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end">
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dialog_button_margin"
+                android:onClick="@{viewModel.onCancelClickListener}"
+                android:text="@string/cancel" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dialog_button_margin"
+                android:layout_marginEnd="@dimen/dialog_button_margin"
+                android:layout_marginRight="@dimen/dialog_button_margin"
+                android:layout_marginTop="@dimen/dialog_button_margin"
+                android:onClick="@{viewModel.onSaveClickListener}"
+                android:text="@string/save" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
