@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -121,7 +122,8 @@ public class MainFragment extends Fragment implements NoteItemViewModel.NoteClic
         if (connectivity != null) {
             NetworkInfo info = connectivity.getActiveNetworkInfo();
             if (info != null && info.getState() == NetworkInfo.State.CONNECTED) {
-                viewModel.internetIsBack();
+                Handler handler = new Handler();
+                handler.postDelayed(() -> viewModel.internetIsBack(), 1000);
             }
         }
     }

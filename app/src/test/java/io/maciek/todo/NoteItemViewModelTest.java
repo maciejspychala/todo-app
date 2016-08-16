@@ -2,7 +2,6 @@ package io.maciek.todo;
 
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
 import org.junit.Assert;
 import org.junit.Before;

@@ -3,13 +3,9 @@ package io.maciek.todo;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import java.util.ArrayList;
 
-import io.maciek.todo.rest.ApiService;
 import io.maciek.todo.rest.models.Note;
 import io.maciek.todo.viewmodels.MainFragmentViewModel;
 

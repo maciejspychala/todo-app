@@ -22,7 +22,6 @@ public class TodoApp extends Application {
     private void initComponent() {
 
         netComponent = DaggerNetComponent.builder()
-                .appModule(new AppModule(this))
                 .netModule(new NetModule("http://128.199.63.179:3000/"))
                 .build();
 

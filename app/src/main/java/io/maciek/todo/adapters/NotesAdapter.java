@@ -53,8 +53,7 @@ public class NotesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             return holder;
         } else {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_item, parent, false);
-            LoadingViewHolder holder = new LoadingViewHolder(v);
-            return holder;
+            return new LoadingViewHolder(v);
         }
     }
 

@@ -44,7 +44,7 @@ public class EditNoteFragmentViewModelTest {
     }
 
     @Test
-    public void testSaveWithChange(){
+    public void testSaveWithChange() {
         editNoteViewModel.setText("title2");
         editNoteViewModel.onSaveClickListener.onClick(null);
         Assert.assertSame(note.getTitle(), "title2");
